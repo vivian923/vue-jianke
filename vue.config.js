@@ -3,8 +3,8 @@ const path =require('path');
 module.exports={
     devServer:{
         proxy:{
-            "/":{
-                target:"",
+            "/v1":{
+                target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
             }
         }
