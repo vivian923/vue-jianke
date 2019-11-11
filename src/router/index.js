@@ -20,10 +20,33 @@ const router = new VueRouter({
         {
             path:"/mine",
             name:"mine",
-            component:_=>import("@pages/mine")
+            component:_=>import("@pages/mine"),
+            meta:{
+                flag:true,
+                requireAuth:true
+            }
+        },
+        {
+            path:"/login",
+            component:_=>import("@pages/login"),
+            name:"login",
+            meta:{
+                flag:false
+            }
         }
         
     ]
 })
 
+router.beforeEach((to,from,next)=>{
+    if(to.path != "/login" && to.meta.requireAuth){
+        if(localStorage.getItem("token")){
+            next();
+        }else{
+            next({name:"login",params:{to:to.path}})
+        }
+    }else{
+        next();
+    }
+})
 export default router;
