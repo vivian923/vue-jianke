@@ -6,6 +6,10 @@ module.exports={
             "/v1":{
                 target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
+            },
+            "/category":{
+                target:"https://wcgi.jianke.com",
+                changeOrigin:true
             }
         }
     },
