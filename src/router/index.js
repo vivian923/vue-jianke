@@ -1,9 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import home from "./home"
-import classify from "./classify"
-import topline from "./topline"
-import cart from "./cart"
+import home from "./home";
+import classify from "./classify";
+import topline from "./topline";
+import cart from "./cart";
+import Boy from "./boy";
+import Search from './search';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -17,13 +19,15 @@ const router = new VueRouter({
         classify,
         topline,
         cart,
+        Boy,
+        Search,
         {
             path:"/mine",
             name:"mine",
             component:_=>import("@pages/mine"),
             meta:{
                 flag:true,
-                requireAuth:true
+                requireAuth:false
             }
         },
         {
