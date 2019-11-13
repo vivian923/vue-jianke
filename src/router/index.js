@@ -4,6 +4,8 @@ import home from "./home"
 import classify from "./classify"
 import topline from "./topline"
 import cart from "./cart"
+import global from "./global"
+import gtype from "./global/gtype/gtype"
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -26,6 +28,8 @@ const router = new VueRouter({
                 requireAuth:true
             }
         },
+        global,
+        gtype,
         {
             path:"/login",
             component:_=>import("@pages/login"),
@@ -34,38 +38,7 @@ const router = new VueRouter({
                 flag:false
             }
         },
-        {
-            path:"/global",
-            component:_=>import("@pages/global"),
-            name:"global",
-            meta:{
-                flag:false
-            },
-            children:[
-                {
-                   path:"/global",
-                   redirect:"/global/rax" 
-                },
-                {
-                    path:"rax",
-                    component:_=>import("@components/freerax"),
-                    name:"rax",
-                    meta:{
-                        flag:false,
-                        requireAuth:false
-                    }
-                },
-                {
-                    path:"discount",
-                    component:_=>import("@components/discount"),
-                    name:"discount",
-                    meta:{
-                        flag:false,
-                        requireAuth:false
-                    }
-                }
-            ]
-        }
+       
         
     ]
 })

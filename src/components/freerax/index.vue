@@ -8,7 +8,7 @@
                         <div class="info">
                             <div class="names">{{item.productName}}</div>
                             <div class="btn">
-                                <span class="hp"><label>￥</label><span>{{item.productPrice | price}}</span></span>
+                                <span class="hp"><span>{{item.productPrice | price}}</span></span>
                                 <div>立即购买</div>
                             </div>
                         </div>

@@ -132,7 +132,7 @@ nav .btn{
     flex:1;
     height:5.2rem;
     overflow-y:auto;
-    padding:8px;
+    padding:0.08rem;
 }
 .sliderbar .rsbar .ad{
     width:2.79rem;
@@ -148,8 +148,8 @@ nav .btn{
 }
 .sliderbar .rsbar .goods li{
     width:0.87475rem;
-    height:1.0369rem;
-    margin: 1%;
+    min-height:1.0369rem;
+    margin:0.02rem;
     overflow: hidden;
     text-align: center;
     color: #666;

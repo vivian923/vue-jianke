@@ -26,3 +26,12 @@ export const rax=(ids)=>http({
         platform:"mobile"
     }
 })
+
+export const gtype=(ids)=>http({
+    methods:"get",
+    url:"v1/simple/products",
+    data:{
+        ids:ids,
+        platform:"app"
+    }
+})

@@ -6,22 +6,32 @@
    
         <div class="nav_box">
             <ul>
-                <li v-for="(item,index) in options" :key=index>
+                <router-link 
+                    v-for="(item,index) in options" 
+                    :key=index
+                    tag="li"
+                    :to="{name:'gtype',params:{ids:item.ids,ad:item.ad}}"
+                >
                     <div>
                         <img :src="item.img">
                     </div>
                     <span>{{item.title}}</span>
-                </li>
+                </router-link>
             </ul>
         </div>
         <div class="nav_box">
             <ul>
-               <li v-for="(item,index) in options2" :key=index>
+               <router-link 
+                    v-for="(item,index) in options2" 
+                    :key=index
+                    tag="li"
+                    :to="{name:'gtype',params:{ids:item.ids,ad:item.ad}}"
+                    >
                     <div>
                         <img :src="item.img">
                     </div>
                     <span>{{item.title}}</span>
-                </li>
+               </router-link>
             </ul>
         </div>
         <div class="timelimit">
@@ -55,12 +65,14 @@
                 <ul>
                     <router-link 
                     to="/global/rax"
+                    replace
                     tag="li"
                     class="tips"
                     @click.native="handleToggle('3%')"
                     >免税专区</router-link>
                     <router-link 
                     to="/global/discount"
+                     replace
                     tag="li"
                     class="tips"
                      @click.native="handleToggle('52%')"
@@ -85,7 +97,6 @@ export default {
     async created(){
         let data=await global("854038,855624,861059,858595,854034,854037")
         this.time=data
-        console.log(data)
     },
     methods:{
         handleToggle(dis){
@@ -110,36 +121,52 @@ export default {
              options:[
             {
                 title:"基础健康",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/fb5e3e71a4574d53b6524cafbd783a36.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/fb5e3e71a4574d53b6524cafbd783a36.jpg",
+                ids:"46408,851929,851931,851933,852004,852005,852006,849536,849539,849543,849548,852015,854002,849542",
+                ad:"https://img.jianke.com/mall/vmall/index/201811/4625073569554692b1ac6476c5eef820.jpg"
             },
             {
                 title:"肝肾养护",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/b74f30196cf44785acfed39a559a9079.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/b74f30196cf44785acfed39a559a9079.jpg",
+                ids:"852249,846404,849533,852000",
+                ad:"https://img.jianke.com/mall/vmall/index/201809/7009bed1a2a8451c8a260c47f233a292.jpg"
             },
             {
                 title:"三高调节",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/c46890db29c145699d5b0c2b436a9d7f.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/c46890db29c145699d5b0c2b436a9d7f.jpg",
+                ids:"846406,846403,854393,849550,852008,851995,851998,849335,852007,852011,849559",
+                ad:"https://img.jianke.com/mall/vmall/index/201809/4e9c3e3dca4f43a6a0cefd801b87547c.jpg"
             },
             {
                 title:"男性健康",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/8bb44756815f4756a416520d9d241283.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/8bb44756815f4756a416520d9d241283.jpg",
+                ids:"855624,855623,854038,854034,854037,854039,854035,846405,856241,849538,852272,849338,849339",
+                ad:"https://img.jianke.com/mall/vmall/index/201811/a19e0d829fbf4801b4a5bb57888a284d.jpg"
             }],
             options2:[
             {
                 title:"复合营养",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/1b425a46b38e478ba5d20bb3371397bd.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/1b425a46b38e478ba5d20bb3371397bd.jpg",
+                ids:"851930,854391,854389,852001,849547,849544,849534,851997,854006,852009,849340",
+                ad:"https://img.jianke.com/mall/vmall/index/201811/2680a79c32f94b7c80cc263f2d84d11f.jpg"
             },
             {
                 title:"骨骼健康",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/2e5cebf088dc443f9e7836d406555c6d.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/2e5cebf088dc443f9e7836d406555c6d.jpg",
+                ids:"846136,852404,849532,851996,852002",
+                ad:"https://img.jianke.com/mall/vmall/index/201811/535c299a2c444b468d63f24948bab562.jpg"
             },
             {
                 title:"塑身养颜",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/77e56bd23a8e4d059fc3ae592d99880b.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/77e56bd23a8e4d059fc3ae592d99880b.jpg",
+                ids:"853866,154582,852361,853331,759914,858034,856834,853328,232500,53783,1233,1863,51296,67599,51094,51631,161124,804590,217722,51253,168798,829252,948,541323,9780,851454,482740,851458,853322,2127,947,178366,862500,856460,856457,848587,839438,227100,846127,866339,866338,851467,227043",
+                ad:"https://img5.jianke.com/mall/vmall/index/201812/3505478d1fd84a438dc9726ec0295960.jpg"
             },
             {
                 title:"增强免疫",
-                img:"https://img5.jianke.com/mall/vmall/index/201902/d93f5e13335e4a97a092ae5c5741315e.jpg"
+                img:"https://img5.jianke.com/mall/vmall/index/201902/d93f5e13335e4a97a092ae5c5741315e.jpg",
+                ids:"849545,849549,849348,854005,849345,854004,854007",
+                ad:"https://img.jianke.com/mall/vmall/index/201811/7270bded9bc14f93930e46543f7d0ba8.jpg"
             }]
         }
        
