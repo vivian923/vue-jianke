@@ -17,8 +17,10 @@ server.interceptors.request.use((config)=>{
     // config.headers["token"]="";
     return config;
 
+    return config;
+
 },(err)=>{
-     return Promise.reject(err)
+    return Promise.reject(err)
 })
 
 //响应拦截
@@ -26,6 +28,7 @@ server.interceptors.response.use((res)=>{
     if(res.status==200){
         return res.data;
     }
+    
 },(err)=>{
     return Promise.reject(err);
 })

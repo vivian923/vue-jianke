@@ -1,14 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import home from "./home"
-import classify from "./classify"
 import topline from "./topline"
-import cart from "./cart"
+import global from "./global"
+import gtype from "./global/gtype/gtype"
 import gril from "./gril"
 import addblood from "./addblood"
 import weight_loss from "./weight_loss"
-
-
+import home from "./home";
+import classify from "./classify";
+import cart from "./cart";
+import Boy from "./boy";
+import Search from './search';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -25,15 +27,19 @@ const router = new VueRouter({
         gril,
         addblood,
         weight_loss,
+        Boy,
+        Search,
         {
             path:"/mine",
             name:"mine",
             component:_=>import("@pages/mine"),
             meta:{
                 flag:true,
-                requireAuth:true
+                requireAuth:false
             }
         },
+        global,
+        gtype,
         {
             path:"/login",
             component:_=>import("@pages/login"),
@@ -41,7 +47,8 @@ const router = new VueRouter({
             meta:{
                 flag:false
             }
-        }
+        },
+       
         
     ]
 })
