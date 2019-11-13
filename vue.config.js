@@ -7,6 +7,10 @@ module.exports={
                 target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
             },
+            "/v2":{
+                target:"https://fe-wcgi.jianke.com",
+                changeOrigin:true
+            },
             "/category":{
                 target:"https://wcgi.jianke.com",
                 changeOrigin:true

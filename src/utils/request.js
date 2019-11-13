@@ -15,9 +15,11 @@ server.interceptors.request.use((config)=>{
 
     // config.headers["content-type"]="application/json";
     // config.headers["token"]="";
+
     return config;
+
 },(err)=>{
-     return Promise.reject(err)
+    return Promise.reject(err)
 })
 
 //响应拦截

@@ -41,6 +41,7 @@ header{
     justify-content:center;
     align-items:center;
     padding:0 .15rem;
+    background: #fff;
 }
 header a{
     width:0.24rem;

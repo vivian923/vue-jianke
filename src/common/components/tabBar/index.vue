@@ -3,7 +3,7 @@
         <router-link
             v-for="item in nav"
             :key="item.id"
-             tag="div"
+            tag="div"
             :to="item.path"
         >
             <span class="iconfont" v-html="item.icon"></span>
@@ -66,7 +66,7 @@ export default {
     left:0;
     bottom:0;
     padding-top:0.05rem;
-    background:#fff
+    background: #fff
 }
 .footer div{
 	color: #333;
