@@ -5,6 +5,7 @@ const data = Mock.mock({
         {
             "id|+1":305,
             productName:"@cname()",
+            introduction:""
         }
     ]
 })

@@ -37,6 +37,38 @@ const router = new VueRouter({
             meta:{
                 flag:false
             }
+        },
+        {
+            path:"/global",
+            component:_=>import("@pages/global"),
+            name:"global",
+            meta:{
+                flag:false
+            },
+            children:[
+                {
+                   path:"/global",
+                   redirect:"/global/rax" 
+                },
+                {
+                    path:"rax",
+                    component:_=>import("@components/freerax"),
+                    name:"rax",
+                    meta:{
+                        flag:false,
+                        requireAuth:false
+                    }
+                },
+                {
+                    path:"discount",
+                    component:_=>import("@components/discount"),
+                    name:"discount",
+                    meta:{
+                        flag:false,
+                        requireAuth:false
+                    }
+                }
+            ]
         }
         
     ]
