@@ -1,14 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import home from "./home"
-import classify from "./classify"
-import topline from "./topline"
-import cart from "./cart"
+
+
+
+
 import gril from "./gril"
 import addblood from "./addblood"
 import weight_loss from "./weight_loss"
 
 
+import home from "./home";
+import classify from "./classify";
+import topline from "./topline";
+import cart from "./cart";
+import Boy from "./boy";
+import Search from './search';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -25,13 +31,15 @@ const router = new VueRouter({
         gril,
         addblood,
         weight_loss,
+        Boy,
+        Search,
         {
             path:"/mine",
             name:"mine",
             component:_=>import("@pages/mine"),
             meta:{
                 flag:true,
-                requireAuth:true
+                requireAuth:false
             }
         },
         {
@@ -41,6 +49,38 @@ const router = new VueRouter({
             meta:{
                 flag:false
             }
+        },
+        {
+            path:"/global",
+            component:_=>import("@pages/global"),
+            name:"global",
+            meta:{
+                flag:false
+            },
+            children:[
+                {
+                   path:"/global",
+                   redirect:"/global/rax" 
+                },
+                {
+                    path:"rax",
+                    component:_=>import("@components/freerax"),
+                    name:"rax",
+                    meta:{
+                        flag:false,
+                        requireAuth:false
+                    }
+                },
+                {
+                    path:"discount",
+                    component:_=>import("@components/discount"),
+                    name:"discount",
+                    meta:{
+                        flag:false,
+                        requireAuth:false
+                    }
+                }
+            ]
         }
         
     ]

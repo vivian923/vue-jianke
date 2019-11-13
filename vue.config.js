@@ -10,6 +10,14 @@ module.exports={
             "/m":{
                 target:"https://jktt-api.jianke.com",
                 changeOrigin:true
+            },
+            "/v2":{
+                target:"https://fe-wcgi.jianke.com",
+                changeOrigin:true
+            },
+            "/category":{
+                target:"https://wcgi.jianke.com",
+                changeOrigin:true
             }
             // https://jktt-api.jianke.com/m/recommends/articles?page=1&size=10
             // http://localhost:8080/m/recommends/articles?page=1&size=10

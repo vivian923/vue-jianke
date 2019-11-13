@@ -3,7 +3,7 @@
         <router-link
             v-for="item in nav"
             :key="item.id"
-             tag="div"
+            tag="div"
             :to="item.path"
         >
             <span class="iconfont" v-html="item.icon"></span>
