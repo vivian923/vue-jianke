@@ -4,6 +4,11 @@ import home from "./home"
 import classify from "./classify"
 import topline from "./topline"
 import cart from "./cart"
+import gril from "./gril"
+import addblood from "./addblood"
+import weight_loss from "./weight_loss"
+
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -17,6 +22,9 @@ const router = new VueRouter({
         classify,
         topline,
         cart,
+        gril,
+        addblood,
+        weight_loss,
         {
             path:"/mine",
             name:"mine",

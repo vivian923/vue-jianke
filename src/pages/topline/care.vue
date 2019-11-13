@@ -1,33 +1,34 @@
 <template>
-  <div class="page">
-    <div class="topline">
-        <div class="header">
-          <router-link
-        to="/topline/advice"
-        tag="span"
-        >
-        推荐
-         </router-link>
-        <router-link
-        to="/topline/care"
-        tag="span"
-        >
-        关注
-         </router-link>
-        <span >关爱糖友</span>
-        <span >养肝护肝</span>
-        <span >心脑血管</span>
+   
+      <main>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/jktt/201911/7224622ba695499a917dd02e05396006.jpeg"
+        />
+        <div class="content" v-for="(item,index) in list" :key="index">
+          <div class="contentLeft" >
+            <p>{{list[index].title}}</p>
+            <p class="message">
+              <img
+                src="https://img5.jianke.com/mall/common/201812/15b934ab77444d8284c3f363fd4a2e99.jpg?imageslim"
+              />
+              <span>今日医药</span>
+              <span>4896 次浏览</span>
+            </p>
+          </div>
+          <img
+            :src="list[index].cover[0]"
+          />
         </div>
-      <router-view></router-view>
-     
-    </div>
-  </div>
+      </main>
+    
 </template>
+
 
 <script>
 import {toplineapi} from "@api/topline";
 export default {
-  name: "Topline",
+  name: "Care",
   data() {
     return {
       list:[]
@@ -42,8 +43,9 @@ export default {
   methods: {
     async toplines(pag,lim){
       let data=await toplineapi();
-      this.list=data;
-      console.log(this.list)
+      console.log(data)
+      this.list=data.data.datalist;
+      console.log(this.list)   
     },
 
   },
@@ -51,11 +53,14 @@ export default {
 };
 </script>
 
+
+
+
+
 <style scoped>
 body,html,#app,.topline{height: 100%;font-size:0.15rem }
 .topline{display: flex;flex-direction: column;}
-.header{width:3.75rem;height:0.37rem;background:#fff;display: flex;justify-content: space-around;width: 100%;
-	align-items: center;position: relative;font-size: 18px;font-size: 0.15rem;}
+
 main{flex: 1;overflow-y: auto;}
 .banner{width: 3.75rem;height: 2.10rem;}
 footer{height:0.6rem;display: flex;justify-content: space-around;align-items: center;}
