@@ -4,7 +4,7 @@
         <div class="find">
             <div class="find_box">
                 <span class="iconfont">&#xe62f;</span>
-                <input type="text" placeholder="倍博特券后40">
+                <input type="text" :placeholder="placeholder" @change="handleSearch()" ref="searchVal">
             </div>
             <button>搜索</button>
         </div>
@@ -12,31 +12,41 @@
         <div class="hotSearch">
             <p>热门搜索</p>
             <div class="tag_list">
-                <span>瑞扬</span>
-                <span>流感</span>
-                <span>皮炎湿疹</span>
-                <span>金戈</span>
-                <span>必利劲</span>
-                <span>阳痿</span>
-                <span>金戈喷剂</span>
-                <span>伟哥</span>
-                <span>小贴士139元</span>
-                <span>妇科炎症</span>
-                <span>糖尿病</span>
-                <span>恩替卡韦特价</span>
-                <span>胃炎</span>
-                <span>壮阳补肾</span>
-                <span>避孕套</span>
-                <span>欧兰宁</span>
-                <span>咳嗽</span>
+                <span v-for="(item,index) in hotWord" :key="index">{{item.word}}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { HotSearch } from "@api/hotWord";
+import { shopSearch } from "@api/search";
 export default {
-    
+    name:"Search",
+    data() {
+        return {
+            hotWord:[],
+            placeholder:""
+        }
+    },
+    created(){
+        this.handleHotSearch();
+    },
+    methods: {
+        async handleHotSearch() {
+        let data = await HotSearch();
+        this.hotWord = data.data;
+        this.placeholder=this.hotWord[0].searchWord;
+        },
+
+        async handleSearch(){
+            let content = this.$refs.searchVal.value;
+            console.log(content)
+            let data = await shopSearch(String(content));
+            console.log(data)
+            
+        }
+    },
 }
 </script>
 
