@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 import topline from "./topline"
 import global from "./global"
 import gtype from "./global/gtype/gtype"
+import gril from "./gril"
+import addblood from "./addblood"
+import weight_loss from "./weight_loss"
 import home from "./home";
 import classify from "./classify";
 import cart from "./cart";
@@ -21,6 +24,9 @@ const router = new VueRouter({
         classify,
         topline,
         cart,
+        gril,
+        addblood,
+        weight_loss,
         Boy,
         Search,
         {

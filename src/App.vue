@@ -9,9 +9,11 @@
 
 <script>
 import TabBar from "@common/components/tabBar"
+
 export default {
   components:{
-    TabBar
+    TabBar,
+
   }
 }
 </script>

@@ -7,6 +7,10 @@ module.exports={
                 target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
             },
+            "/m":{
+                target:"https://jktt-api.jianke.com",
+                changeOrigin:true
+            },
             "/v2":{
                 target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
@@ -16,6 +20,9 @@ module.exports={
                 changeOrigin:true
             }
         }
+       
+
+
     },
     //别名配置
     configureWebpack:{

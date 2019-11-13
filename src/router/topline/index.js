@@ -2,8 +2,28 @@ export default{
     path:"/topline",
     component:_=>import("@pages/topline"),
     name:"topline",
+    redirect:"/topline/advice",
     meta:{
         flag:true,
         requireAuth:false
-    }
+    },
+    children:[
+        {
+            path:"advice",
+            component:_=>import("@pages/topline/advice"),
+            meta:{
+                flag:true,
+                requireAuth:false
+            },
+        },
+        {
+            path:"care",
+            component:_=>import("@pages/topline/care"),
+            meta:{
+                flag:true,
+                requireAuth:false
+            },
+        }
+    ]
+    
 }
