@@ -38,9 +38,7 @@ export default {
   methods: {
     async addbloods(){
     let data= await addbloodapi();
-    //console.log(data)
     this.list=data
-    console.log(this.list)
   },
    
     

@@ -1,81 +1,76 @@
 <template>
-<div class="container">
-     <div class="loader"></div>
-</div>
-   
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
 </template>
+
 <script>
 export default {
     
 }
 </script>
+
 <style>
-.container{
-    background: rgba(0, 0, 0, 0.4)
+.loading-container{
+  background: linear-gradient(90deg, #FF4E50 10%, #F9D423 90%);
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  z-index:99;
+  opacity:.5;
 }
 .loader {
-  position: relative;
-  width: 2.5em;
-  height: 2.5em;
-  transform: rotate(165deg);
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: 50%;
+  margin-top: -20px;
 }
 .loader:before, .loader:after {
-  content: '';
+  content: "";
+  height: 40px;
+  width: 40px;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: 0.5em;
-  height: 0.5em;
-  border-radius: 0.25em;
-  transform: translate(-50%, -50%);
+  top: 0;
 }
 .loader:before {
-  animation: before 2s infinite;
+  -webkit-animation: animate 2s infinite linear;
+          animation: animate 2s infinite linear;
 }
 .loader:after {
-  animation: after 2s infinite;
+  -webkit-animation: animate2 2s infinite linear;
+          animation: animate2 2s infinite linear;
 }
 
-@keyframes before {
-  0% {
-    width: 0.5em;
-    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
-  }
-  35% {
-    width: 2.5em;
-    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
-  }
-  70% {
-    width: 0.5em;
-    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
-  }
+@-webkit-keyframes animate {
   100% {
-    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    -webkit-transform: rotate(180deg) skew(360deg);
+            transform: rotate(180deg) skew(360deg);
   }
 }
-@keyframes after {
-  0% {
-    height: 0.5em;
-    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
-  }
-  35% {
-    height: 2.5em;
-    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
-  }
-  70% {
-    height: 0.5em;
-    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
-  }
+
+@keyframes animate {
   100% {
-    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    -webkit-transform: rotate(180deg) skew(360deg);
+            transform: rotate(180deg) skew(360deg);
   }
 }
-
-
-.loader {
-  position: absolute;
-  top: calc(50% - 1.25em);
-  left: calc(50% - 1.25em);
+@-webkit-keyframes animate2 {
+  100% {
+    -webkit-transform: rotate(-180deg) skew(-360deg);
+            transform: rotate(-180deg) skew(-360deg);
+  }
+}
+@keyframes animate2 {
+  100% {
+    -webkit-transform: rotate(-180deg) skew(-360deg);
+            transform: rotate(-180deg) skew(-360deg);
+  }
 }
 </style>

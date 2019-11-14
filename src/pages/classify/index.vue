@@ -4,7 +4,7 @@
         <nav>
             <div class="sbox">
                 <i class="iconfont search">&#xe62f;</i>
-                <input type="text" placeholder="开浦兰低至8折购">
+                <input type="text" placeholder="开浦兰低至8折购"  @focus="toSearch()">
             </div>
             <div class="btn">搜索</div>
         </nav>
@@ -18,7 +18,7 @@
                 :class="index==flag?'active':''"
                 >{{item.categoryName}}</v-touch>
             </ul>
-           
+           <keep-alive>
             <div class="rsbar">
                 <div class="ad">
                     <img :src="adimg">
@@ -30,7 +30,8 @@
                     </li>
                     
                 </ul>
-            </div> 
+            </div>
+           </keep-alive> 
         </section>
     </div>
 </template>
@@ -47,13 +48,23 @@ export default {
     },
     created(){
         this.$store.dispatch("classify/handleActionCategroy")
-        this.$store.dispatch("classify/handleActionGetGoods") 
     },
-    
+    beforeUpdate(){
+            let em=this;
+            if(!(sessionStorage.getItem("has"))){
+                   setTimeout(function(){
+                    em.$store.dispatch("classify/handleActionGetGoods") 
+                },900)
+            }
+         
+    },
     methods:{
         ...mapActions({
             handleGetGoods:"classify/handleActionGetGoods"
-        })
+        }),
+        toSearch(){
+            this.$router.push("/search")
+        }
     },
     computed:{
         ...mapState({
@@ -65,6 +76,9 @@ export default {
         })
     }
 }
+ window.onbeforeunload = function(event){
+     sessionStorage.removeItem("has")
+ }
 </script>
 
 <style scoped>

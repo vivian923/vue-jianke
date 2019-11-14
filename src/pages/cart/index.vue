@@ -1,11 +1,9 @@
 <template>
   <div class="page">
     <main>
-      <header>
-        <span class="top_car">购物车</span>
-        <span class="top_car1">编辑</span>
-      </header>
+      <Header title="购物车" icon/>
       <div class="checkall">
+        <span class="iconfont">&#xe770;</span>
         <span class="self">健客自营</span>
         <span class="self1">再购79.00元免运费</span>
       </div>
@@ -150,16 +148,23 @@ export default {
 </script>
 
 <style scoped>
-html,body{height: 100%}
-html{font-size: 26.67vw;}/*750-----31.25--640*/
-body{display: flex;flex-direction: column;}
+.page{display: flex;flex-direction: column;}
 header{height:0.45rem;background:#fff;display: flex;align-items: center;position: relative;font-size: 17px;}
 main{flex: 1;overflow-y: auto;}
 footer{height:0.49rem;background: green;display: flex;justify-content: space-around;align-items: center;}
 .checkall{height: 0.35rem;margin: 0 auto;background:#fff;padding: 0 .15rem;margin-top: .12rem;display: flex;align-items: center;font-size: 17px;}
-.top_car{margin-left: 40%;}
-.top_car1{margin-left: 34%;}
-.self{margin-left: 10%;}
+.checkall .iconfont{
+  width: .18rem;
+  height: .18rem;
+  border: .01rem solid #ccc;
+  border-radius: 50%;
+  text-align: center;
+  line-height: .18rem;
+  font-size: .18rem;
+  color: blue;
+  margin-right: .1rem;
+}
+.self{font-size: .15rem;color: #333;}
 .self1{margin-left: 38%;font-size: 0.12rem; color: #f78646;}
 .item-body{height: 0.9784rem;padding: .1rem .1rem 0;display: flex;font-size: 0.12rem}
 .item-body img{width: 0.58rem;height: 0.58rem;border:solid .05rem #fff;margin-right: .2rem;margin-left: .2rem;}

@@ -15,8 +15,16 @@ module.exports={
                 target:"https://fe-wcgi.jianke.com",
                 changeOrigin:true
             },
+            "/Search":{
+                target:"http://m.360kad.com",
+                changeOrigin:true
+            },
             "/category":{
                 target:"https://wcgi.jianke.com",
+                changeOrigin:true
+            },
+            "/api":{
+                target:"http://39.97.33.178",
                 changeOrigin:true
             }
         }

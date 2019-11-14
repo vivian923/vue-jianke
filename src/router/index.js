@@ -12,6 +12,7 @@ import cart from "./cart";
 import Boy from "./boy";
 import Search from './search';
 import finds from "./finds"
+import City from "./city"
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -22,6 +23,7 @@ const router = new VueRouter({
             redirect:"/home"
         },
         home,
+        City,
         classify,
         topline,
         cart,

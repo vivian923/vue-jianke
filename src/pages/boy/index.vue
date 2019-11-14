@@ -1,7 +1,7 @@
 <template>
   <div class="boy">
     <div class="main">
-      <div class="slider">
+      <div class="slider" id="top">
         <img
           src="https://img.tianditao.com/mall/vmall/index/201907/3e008d3d41b4453abc6692b1bb43f166.jpg"
         />
@@ -40,7 +40,7 @@
           src="https://img.tianditao.com/mall/vmall/index/201910/970afcdb21254f348bfa826f0a4b9a78.jpg"
         />
       </div>
-      <div class="title_1">
+      <div class="title_1" id="miaosha">
         <img
           src="https://img.tianditao.com/mall/vmall/index/201907/a0702c29cb19405694bf217cc4c100d4.jpg"
         />
@@ -135,7 +135,7 @@
           src="https://img.tianditao.com/mall/vmall/index/201911/4e80e16784b24ecea58902ebbed82f22.jpg"
         />
       </div>
-      <div class="title_2">
+      <div class="title_2" id="pinpai">
         <img
           src="https://img.tianditao.com/mall/vmall/index/201907/7c8af789c54d4b4da13580896f47f491.jpg"
         />
@@ -183,6 +183,7 @@
       </div>
       <div class="vadio_1">
         <img
+        id="xingfu"
           src="https://img.tianditao.com/mall/vmall/index/201906/966eb40991df49d7977e7344750af87d.png"
         />
       </div>
@@ -191,7 +192,7 @@
           src="https://img.tianditao.com/mall/vmall/index/201906/04cb2cb1c8d64f2c8c7eda826a3d7c36.jpg"
         />
       </div>
-      <div class="title_4">
+      <div class="title_4" id="remen">
         <img
           src="https://img.tianditao.com/mall/vmall/index/201907/7ce019a18189458398b5ba410995c166.jpg"
         />
@@ -202,7 +203,7 @@
             v-for="(item,index) in boyNav"
             :key="index"
             :id="sign == index?'boyactive':''"
-            @click="handleGetBoy(index,item.ids)"
+            @click="handleClickGetBoy(index,item.ids)"
           >{{item.title}}</li>
         </ul>
       </div>
@@ -220,11 +221,11 @@
     </div>
     <div class="footer">
       <div class="mao">
-        <a href="#">回到顶部</a>
-        <a href="#">限量秒杀</a>
-        <a href="#">品牌汇</a>
-        <a href="#">性福秘籍</a>
-        <a href="#">热门用药</a>
+        <a href="#top">回到顶部</a>
+        <a href="#miaosha">限量秒杀</a>
+        <a href="#pinpai">品牌汇</a>
+        <a href="#xingfu">性福秘籍</a>
+        <a href="#remen">热门用药</a>
       </div>
     </div>
   </div>
@@ -232,6 +233,7 @@
 
 <script>
 import { boy } from "@api/boy";
+import {throttle} from '@utils/method';
 export default {
   name: "Boy",
   data() {
@@ -272,9 +274,16 @@ export default {
   },
   methods: {
     async handleGetBoy(index, ids) {
-      this.sign = index;
-      let data = await boy(ids);
-      this.boyShop = data;
+        let data = await boy(ids);
+        this.boyShop = data;
+    },
+
+    async handleClickGetBoy(index, ids) {
+      if(this.sign != index){
+        this.sign = index;
+        let data = await boy(ids);
+        this.boyShop = data;
+      }
     }
   }
 };
@@ -519,6 +528,9 @@ export default {
 .footer .mao a {
   font-size: 0.14rem;
   color: #fff;
+}
+.footer .mao a:hover{
+  color: rgb(253, 231, 111);
 }
 #boyactive {
   color: #f23d22;

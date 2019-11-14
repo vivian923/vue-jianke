@@ -7,26 +7,24 @@ const server =axios.create({
     withCredentials:true
 })
 
-//请求拦截器
+//请求拦截器 
 server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params = {...config.data};
     }
     loading.loadingMount();
-
     // config.headers["content-type"]="application/json";
     // config.headers["token"]="";
     return config;
 
 },(err)=>{
     return Promise.reject(err)
-})
+}) 
 
 //响应拦截
 server.interceptors.response.use((res)=>{
     if(res.status==200){
-
-        loading.loadingDestory();
+        loading.loadingDestroy();
         return res.data;
     }
     
