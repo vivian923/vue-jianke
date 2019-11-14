@@ -1,8 +1,11 @@
 import Header from "./header"
-
+import BScroll from "./bscroll"
 const UIcomponents=[
-    Header
+    Header,
+    BScroll
 ];
+
+
 
 
 const install =(Vue)=>{
