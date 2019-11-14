@@ -1,6 +1,5 @@
 <template>
     <main>
-       
         <section class="header">
             <img :src="ad">
         </section>
@@ -26,14 +25,14 @@
 </template>
 
 <script>
-import{gtype} from "@api/global"
+import{global} from "@api/global"
 export default {
     name:"gtype",
    async created(){
         let {ids,ad}=this.$route.params;
         this.ids=ids;
         this.ad=ad;
-        let data=await gtype(ids)
+        let data=await global(ids,"app")
         this.list=sessionStorage.getItem(data[0].productCode)? JSON.parse(sessionStorage.getItem(data[0].productCode)):data;
         sessionStorage.setItem(data[0].productCode,JSON.stringify(data))
         this.typeID=data[0].productCode

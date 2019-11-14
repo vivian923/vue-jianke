@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import{rax} from "@api/global"
+import{global} from "@api/global"
 import { filter } from 'minimatch'
 
 export default {
@@ -29,7 +29,7 @@ export default {
         }
     },
     async created(){
-        let data=await rax("854038,855624,861059,858595,854034,854037,846136,846404,846406,846407,846403,846408,861046")
+        let data=await global("854038,855624,861059,858595,854034,854037,846136,846404,846406,846407,846403,846408,861046","mobile")
         this.rax=data.splice(0,5)
     },
     filters:{
