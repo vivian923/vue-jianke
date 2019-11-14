@@ -1,13 +1,19 @@
 <template>
   <div class="page">
-
     <div class="header">
       <span class="iconfont">&#xe678;</span>
       <div class="find">
         <i class="iconfont">&#xe62f;</i>
         <input type="text" placeholder="韦力得买药抽大奖" @focus="toSearch()"/>
       </div>
-      <span>登陆</span>
+      <div class="city">
+        <i class="iconfont">&#xe662;</i>
+        <router-link 
+          :to="{name:'city',params:{path:$route.path}}"
+          tag="span"
+        >
+        {{this.$store.state.city.nm}}</router-link>
+      </div>
     </div>
 
     <div class="bigbox">
@@ -319,12 +325,28 @@ export default {
 .header .find input{
 	width: 1.8848rem;
 	height: 0.16rem;
-	padding-left: 5px;
+  padding-left: 5px;
+  font:initial
 }
-.header span:nth-of-type(2){
-	font-size: 0.2rem;
+.header .city{
+  width:.6rem;
+  height:.25rem;
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+.header .city i{
+  font-size:.16rem;
+  color:#fff
+}
+.header .city span:nth-of-type(1){
+	font-size: 0.18rem;
+  width:.5rem;
 	color: #FFFFFF;
-    font-family: "楷体"
+  font-family: "楷体";
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .bigbox{
 	flex: 1;

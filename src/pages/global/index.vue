@@ -94,17 +94,18 @@
 import {global} from "@api/global"
 export default {
 
-    async created(){
-        let data=await global("854038,855624,861059,858595,854034,854037")
-        this.time=data
+   created(){
+       let em=this;
+        setTimeout(async function(){
+            let data=await global("854038,855624,861059,858595,854034,854037","mobile")
+            em.time=data
+        },300)
+        
     },
     methods:{
         handleToggle(dis){
             this.$refs.slider.style.left=dis
         }
-    },
-    mounted(){
-        
     },
     filters:{
         imgurl(value){

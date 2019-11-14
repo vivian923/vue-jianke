@@ -22,6 +22,10 @@ module.exports={
             "/category":{
                 target:"https://wcgi.jianke.com",
                 changeOrigin:true
+            },
+            "/api":{
+                target:"http://39.97.33.178",
+                changeOrigin:true
             }
         }
        

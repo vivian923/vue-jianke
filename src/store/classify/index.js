@@ -28,13 +28,13 @@ let mutations = {
         let data =await categroies();
         state.categroy=data
     },
+
     async handleGetGoods(state,params){
         let data= await goods(params.pid);
         state.goods=data;
         state.adimg=params.ad;
         state.flag=params.index
-        
-        console.log(data);
+        sessionStorage.setItem("has",JSON.stringify(data))
     }
 }
 
