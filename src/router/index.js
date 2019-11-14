@@ -11,6 +11,7 @@ import classify from "./classify";
 import cart from "./cart";
 import Boy from "./boy";
 import Search from './search';
+import finds from "./finds"
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -29,6 +30,7 @@ const router = new VueRouter({
         weight_loss,
         Boy,
         Search,
+        finds,
         {
             path:"/mine",
             name:"mine",

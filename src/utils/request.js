@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import loading from "@lib/loading/index.js"
 
 const server =axios.create({
     timeout:5000,
@@ -12,11 +12,10 @@ server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params = {...config.data};
     }
+    loading.loadingMount();
 
     // config.headers["content-type"]="application/json";
     // config.headers["token"]="";
-    return config;
-
     return config;
 
 },(err)=>{
@@ -26,6 +25,8 @@ server.interceptors.request.use((config)=>{
 //响应拦截
 server.interceptors.response.use((res)=>{
     if(res.status==200){
+
+        loading.loadingDestory();
         return res.data;
     }
     

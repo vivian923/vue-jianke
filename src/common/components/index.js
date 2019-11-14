@@ -1,8 +1,10 @@
 import Vue from "vue";
 import Header from "./header"
 
+import BScroll from "./bscroll"
 let componentMap=[
-    Header
+    Header,
+    BScroll
 ];
 
 componentMap.forEach(item=>{

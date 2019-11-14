@@ -154,14 +154,14 @@ html,body{height: 100%}
 html{font-size: 26.67vw;}/*750-----31.25--640*/
 body{display: flex;flex-direction: column;}
 header{height:0.45rem;background:#fff;display: flex;align-items: center;position: relative;font-size: 17px;}
-main{flex: 1;overflow-y: auto;background:  #e5e5e5;}
+main{flex: 1;overflow-y: auto;}
 footer{height:0.49rem;background: green;display: flex;justify-content: space-around;align-items: center;}
 .checkall{height: 0.35rem;margin: 0 auto;background:#fff;padding: 0 .15rem;margin-top: .12rem;display: flex;align-items: center;font-size: 17px;}
 .top_car{margin-left: 40%;}
 .top_car1{margin-left: 34%;}
 .self{margin-left: 10%;}
 .self1{margin-left: 38%;font-size: 0.12rem; color: #f78646;}
-.item-body{height: 0.9784rem;padding: .1rem .1rem 0;background:  #e5e5e5;display: flex;font-size: 0.12rem}
+.item-body{height: 0.9784rem;padding: .1rem .1rem 0;display: flex;font-size: 0.12rem}
 .item-body img{width: 0.58rem;height: 0.58rem;border:solid .05rem #fff;margin-right: .2rem;margin-left: .2rem;}
 .remove{    height: 0.12rem;line-height: 0.12rem;text-align: right;padding: .16rem .3rem .2rem;border-bottom: 2px solid #eee;font-size: 17px;}
 button{     width: 0.2rem;font-size: 0.14rem;   color: #666;height: .2rem;line-height: .2rem;font-size: 0.12rem;text-align: center;display: inline-block;}
