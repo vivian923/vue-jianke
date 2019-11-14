@@ -4,7 +4,7 @@
         <div class="find">
             <div class="find_box">
                 <span class="iconfont">&#xe62f;</span>
-                <input type="text" :placeholder="placeholder" @change="handleSearch()" ref="searchVal">
+                <input type="text" :placeholder="placeholder" v-model="value">
             </div>
             <button>搜索</button>
         </div>
@@ -15,18 +15,28 @@
                 <span v-for="(item,index) in hotWord" :key="index">{{item.word}}</span>
             </div>
         </div>
+
+        <div class="searchResult" ref="searchResult">
+            <div class="result" v-for="(item,index) in searchR" :key="index">
+                <p>{{item.KeyWord}}</p>
+                <span>约{{item.ResultCount}}件商品</span>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import { HotSearch } from "@api/hotWord";
 import { shopSearch } from "@api/search";
+import {throttle} from '@utils/method';
 export default {
     name:"Search",
     data() {
         return {
             hotWord:[],
-            placeholder:""
+            placeholder:"",
+            searchR:[],
+            value:""
         }
     },
     created(){
@@ -37,16 +47,22 @@ export default {
         let data = await HotSearch();
         this.hotWord = data.data;
         this.placeholder=this.hotWord[0].searchWord;
-        },
-
-        async handleSearch(){
-            let content = this.$refs.searchVal.value;
-            console.log(content)
-            let data = await shopSearch(String(content));
-            console.log(data)
-            
         }
     },
+    watch: {
+        value(newVal){
+            throttle(async ()=>{
+                let data = await shopSearch(newVal);
+                this.searchR=data?data:[];
+                if(this.searchR.length>0){
+                    this.$refs.searchResult.style.display="block";
+                }else{
+                    this.$refs.searchResult.style.display="none";
+                }
+            },300)
+            
+        }
+    }
 }
 </script>
 
@@ -113,5 +129,29 @@ export default {
         border: 0.01rem solid #eee;
         font-size: .14rem;
         margin-right: .07rem;
+    }
+    .searchResult{
+        position: absolute;
+        top: .9rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        padding: 0 .1rem;
+        display: none;
+    }
+    .searchResult .result{
+        height: .55rem;
+        border-bottom: .01rem solid #ccc;
+        font-size: .13rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .searchResult .result p{
+        color: #222;
+    }
+    .searchResult .result span{
+        color: #9B9B9B;
     }
 </style>

@@ -4,7 +4,7 @@
         <nav>
             <div class="sbox">
                 <i class="iconfont search">&#xe62f;</i>
-                <input type="text" placeholder="开浦兰低至8折购">
+                <input type="text" placeholder="开浦兰低至8折购"  @focus="toSearch()">
             </div>
             <div class="btn">搜索</div>
         </nav>
@@ -53,7 +53,10 @@ export default {
     methods:{
         ...mapActions({
             handleGetGoods:"classify/handleActionGetGoods"
-        })
+        }),
+        toSearch(){
+            this.$router.push("/search")
+        }
     },
     computed:{
         ...mapState({

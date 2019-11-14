@@ -43,7 +43,6 @@ export default {
     async weight_losss() {
       let data = await weight_lossapi();
       this.list = data;
-      console.log(this.list);
     }
   }
 };

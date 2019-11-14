@@ -5,7 +5,7 @@
       <span class="iconfont">&#xe678;</span>
       <div class="find">
         <i class="iconfont">&#xe62f;</i>
-        <input type="text" placeholder="韦力得买药抽大奖" />
+        <input type="text" placeholder="韦力得买药抽大奖" @focus="toSearch()"/>
       </div>
       <span>登陆</span>
     </div>
@@ -268,6 +268,11 @@ export default {
           path:"/bayCall"
         }
       ]
+    }
+  },
+  methods: {
+    toSearch(){
+      this.$router.push("/search")
     }
   },
 

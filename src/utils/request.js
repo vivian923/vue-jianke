@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import loading from '@lib/loadingZxl/index.js'
 
 const server =axios.create({
     timeout:5000,
@@ -7,11 +7,12 @@ const server =axios.create({
     withCredentials:true
 })
 
-//请求拦截器
+//请求拦截器 
 server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params = {...config.data};
     }
+    loading.loadingMount();
 
     // config.headers["content-type"]="application/json";
     // config.headers["token"]="";
@@ -26,7 +27,8 @@ server.interceptors.request.use((config)=>{
 //响应拦截
 server.interceptors.response.use((res)=>{
     if(res.status==200){
-        return res.data;
+        loading.loadingDestory();
+        return res.data; 
     }
     
 },(err)=>{

@@ -43,7 +43,6 @@ export default {
     async toplines(pag,lim){
       let data=await toplineapi();
       this.list=data;
-      console.log(this.list)
     },
 
   },
