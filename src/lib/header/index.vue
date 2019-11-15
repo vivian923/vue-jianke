@@ -42,6 +42,7 @@ header{
     align-items:center;
     padding:0 .15rem;
     background: #fff;
+    box-sizing:border-box
 }
 header a{
     width:0.24rem;

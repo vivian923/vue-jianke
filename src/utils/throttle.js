@@ -1,7 +1,7 @@
 /*
     函数节流
 */
-export default throttle =(function(){
+export const throttle =(function(){
     var firstTime=0;
     return function(callback,time){
         var lastTime =new Date().getTime();

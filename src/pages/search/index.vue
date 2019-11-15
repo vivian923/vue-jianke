@@ -54,6 +54,7 @@ export default {
             throttle(async ()=>{
                 let data = await shopSearch(newVal);
                 this.searchR=data?data:[];
+                console.log(data)
                 if(this.searchR.length>0){
                     this.$refs.searchResult.style.display="block";
                 }else{

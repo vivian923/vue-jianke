@@ -5,7 +5,7 @@
       <main>
         <img
           class="banner"
-          src="https://img.tianditao.com/mall/jktt/201911/a632e9fbe4da45eaa8f48c43d5005a66.jpeg"
+          src="https://img.tianditao.com/mall/jktt/201911/7224622ba695499a917dd02e05396006.jpeg"
         />
         <div class="content">
           <div class="contentLeft">

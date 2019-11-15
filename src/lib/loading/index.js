@@ -19,5 +19,5 @@ class JSloading {
 export default new JSloading();
 
 /*
-   Vue.extend():继承Vue这个构造函数 得到一个Vue的子类
+    Vue.extend():继承Vue这个构造函数 得到一个Vue的子类
 */

@@ -3,6 +3,7 @@ export default{
     component:_=>import("@pages/boy"),
     name:"boy",
     meta:{
-        requireAuth:false
+        requireAuth:false,
+        flag:false
     }
 }

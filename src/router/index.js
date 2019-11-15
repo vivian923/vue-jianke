@@ -13,6 +13,9 @@ import Boy from "./boy";
 import Search from './search';
 import finds from "./finds"
 import City from "./city"
+import BoyCon from './boy/boy_con/index'
+import Detail from "./detail"
+import Cookie from "vue-cookies"
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -33,13 +36,15 @@ const router = new VueRouter({
         Boy,
         Search,
         finds,
+        BoyCon,
+        Detail,
         {
             path:"/mine",
             name:"mine",
             component:_=>import("@pages/mine"),
             meta:{
                 flag:true,
-                requireAuth:false
+                requireAuth:true
             }
         },
         global,
@@ -52,14 +57,20 @@ const router = new VueRouter({
                 flag:false
             }
         },
-       
-        
+        {
+            path:"/register",
+            component:_=>import("@pages/register"),
+            name:"register",
+            meta:{
+                flag:false
+            }
+        }
     ]
 })
 
 router.beforeEach((to,from,next)=>{
     if(to.path != "/login" && to.meta.requireAuth){
-        if(localStorage.getItem("token")){
+        if(Cookie.get("token")){
             next();
         }else{
             next({name:"login",params:{to:to.path}})
@@ -68,4 +79,9 @@ router.beforeEach((to,from,next)=>{
         next();
     }
 })
+
+
 export default router;
+/*
+localStorage.getItem("token")
+*/
