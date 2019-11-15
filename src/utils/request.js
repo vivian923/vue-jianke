@@ -1,5 +1,5 @@
 import axios from "axios";
-import loading from "@lib/loading"
+import zmhUI from "@lib"
 
 const server =axios.create({
     timeout:5000,
@@ -13,7 +13,7 @@ server.interceptors.request.use((config)=>{
         config.params = {...config.data};
     }
     if(config.url !="/Search/SearchPanGuWordResult"){
-        loading.loadingMount();
+        zmhUI.Loading.loadingMount();
     }
     //loading.loadingMount();
     
@@ -28,7 +28,7 @@ server.interceptors.request.use((config)=>{
 //响应拦截
 server.interceptors.response.use((res)=>{
     if(res.status==200 && res.config.url != "/Search/SearchPanGuWordResult"){
-        loading.loadingDestroy();
+        zmhUI.Loading.loadingDestroy();
         return res.data;
     }else{
         return res.data;

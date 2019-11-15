@@ -4,6 +4,6 @@ export default{
     name:"cart",
     meta:{
         flag:true,
-        requireAuth:false
+        requireAuth:true
     }
 }
