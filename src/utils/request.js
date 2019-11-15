@@ -12,9 +12,10 @@ server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params = {...config.data};
     }
-    loading.loadingMount();
-    // config.headers["content-type"]="application/json";
-    // config.headers["token"]="";
+   
+    if(config.url!=="Search/SearchPanGuWordResult"){
+          loading.loadingMount();
+    }      
     return config;
 
 },(err)=>{
@@ -24,10 +25,14 @@ server.interceptors.request.use((config)=>{
 //响应拦截
 server.interceptors.response.use((res)=>{
     if(res.status==200){
-        loading.loadingDestroy();
+           if(res.config.url!=="Search/SearchPanGuWordResult"){
+                loading.loadingDestroy();
+            }
+             
+       
         return res.data;
     }
-    
+  
 },(err)=>{
     return Promise.reject(err);
 })
