@@ -13,6 +13,7 @@ import Boy from "./boy";
 import Search from './search';
 import finds from "./finds"
 import City from "./city"
+import BoyCon from './boy/boy_con/index'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -33,6 +34,7 @@ const router = new VueRouter({
         Boy,
         Search,
         finds,
+        BoyCon,
         {
             path:"/mine",
             name:"mine",
@@ -51,9 +53,7 @@ const router = new VueRouter({
             meta:{
                 flag:false
             }
-        },
-       
-        
+        }
     ]
 })
 

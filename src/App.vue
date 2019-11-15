@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive exclude="gtype">
+    <keep-alive exclude="gtype,boyCon">
       <router-view></router-view>
     </keep-alive>
       <TabBar v-if="$route.meta.flag"/>

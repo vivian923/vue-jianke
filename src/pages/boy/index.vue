@@ -7,38 +7,13 @@
         />
       </div>
       <div class="nav">
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/3a7ca45949654438bbd3fb2084499b48.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/7a4ad98fb4d643bab820e147fc1ab312.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/cf99aa40482b4e80a77f200d77cb5736.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/87aca0c0d5834d269cbfc56491937d51.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/e959f6515e02449e9dfeabca40e03d9e.jpg"
-        />
-      </div>
-      <div class="nav">
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/e5a8f0f565884cb08f4bae9a195ef627.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/b02facc0a0984afd82ad0f52303fc97a.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/320dc2b584694c12ab781bec8f91807e.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/a806a6247ff745be9f0e26b2b8f30a95.jpg"
-        />
-        <img
-          src="https://img.tianditao.com/mall/vmall/index/201910/970afcdb21254f348bfa826f0a4b9a78.jpg"
-        />
+        <router-link 
+        v-for="(item,index) in boyList"
+        :key="index"
+        :to="{name:'boyCon',params:{ids:item.ids,title:item.title}}"
+        tag="img"
+        :src="item.urlImg"
+        ></router-link>
       </div>
       <div class="title_1" id="miaosha">
         <img
@@ -50,29 +25,29 @@
           <img
             src="https://img.jianke.com/suo//mall/product/201911/9aef322360584461a4cb752fd666541c!400x400.jpg"
           />
-          <p>睾丸片(京生)</p>
-          <p>￥118.00</p>
+          <p>金匮肾气丸(同仁堂)(水蜜丸)</p>
+          <p>￥12.80</p>
         </div>
         <div class="item">
           <img
             src="https://img.jianke.com/suo//mall/product/201911/7aa1e5616e4d472aa4bb40c1124c7e3b!400x400.jpg"
           />
-          <p>睾丸片(京生)</p>
-          <p>￥118.00</p>
+          <p>希爱力28片 </p>
+          <p>￥579.00</p>
         </div>
         <div class="item">
           <img
-            src="https://img.jianke.com/suo//mall/product/201911/0b91d757a22949ee9eab82c448063765!400x400.jpg"
+            src="https://img.jianke.com/suo//mall/product/201911/0145b9734e0745e8ad526c6639e358e8!400x400.jpg"
           />
-          <p>睾丸片(京生)</p>
-          <p>￥118.00</p>
+          <p>金戈21片</p>
+          <p>￥218.00</p>
         </div>
         <div class="item">
           <img
-            src="https://img.jianke.com/suo//mall/product/201910/3c2aa7ac208a44b197aac07687a5e74f!400x400.jpg"
+            src="https://img.jianke.com/suo//mall/product/201911/9885b7fd05de4ae098f850563583ebe8!400x400.jpg"
           />
-          <p>睾丸片(京生)</p>
-          <p>￥118.00</p>
+          <p>金戈20片</p>
+          <p>￥379.00</p>
         </div>
         <div class="item">
           <img
@@ -266,6 +241,58 @@ export default {
           ids:
             "155530,154453,4450,52735,9230,524996,177342,204498,697117,2407,158099,158717,209586,164912,816964,156626"
         }
+      ],
+      boyList:[
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/3a7ca45949654438bbd3fb2084499b48.jpg",
+          ids:"818498,301337,514235,514234,818497,301340,808474,520512,825192,535485,862118,849159,849158,762560,535486,520510,416929,416930,839370,818522,818521,818520",
+          title:"阳痿早泄"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/7a4ad98fb4d643bab820e147fc1ab312.jpg",
+          ids:"207422,11929,262912,52836",
+          title:"补肾壮阳"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/cf99aa40482b4e80a77f200d77cb5736.jpg",
+          ids:"11929,207422,52718,269069,262912,52836",
+          title:"滋阴补肾"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/87aca0c0d5834d269cbfc56491937d51.jpg",
+          ids:"764808,155883,5514,212037,3397,445114,347233,232496",
+          title:"前列腺炎"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/e959f6515e02449e9dfeabca40e03d9e.jpg",
+          ids:"764808,155883,14286,2477,3397,212037,226592,5514,169197,445114,763,227107,232496,217401",
+          title:"前列腺增生"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/e5a8f0f565884cb08f4bae9a195ef627.jpg",
+          ids:"52735,164912,4450,227104",
+          title:"男性不育"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/b02facc0a0984afd82ad0f52303fc97a.jpg",
+          ids:"764808,155883,5514,226592,3397,212037,177343,10581",
+          title:"尿路感染"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/320dc2b584694c12ab781bec8f91807e.jpg",
+          ids:"1462,2318,160484,10619,2323,851,223822,854,402866,599,175281,402502,8031,2431,5751,641390",
+          title:"肾结石"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/a806a6247ff745be9f0e26b2b8f30a95.jpg",
+          ids:"168611,420571",
+          title:"夜尿症"
+        },
+        {
+          urlImg:"https://img.tianditao.com/mall/vmall/index/201910/970afcdb21254f348bfa826f0a4b9a78.jpg",
+          ids:"12381,158485,11995,3809,179566,580465,821152,205394",
+          title:"肾炎肾病"
+        }
       ]
     };
   },
@@ -311,10 +338,11 @@ export default {
 }
 
 .main .nav {
-  height: 0.9rem;
+  height: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .main .nav img {
@@ -359,6 +387,10 @@ export default {
 .main .slider_x .item p {
   font-size: 0.14rem;
   color: #333;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .main .act_raw {
