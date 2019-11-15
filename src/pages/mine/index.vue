@@ -6,7 +6,7 @@
 				<div class="head">
                     <img src="../../../public/img/nomal.png" alt="">
                 </div>
-				<p><span>186****6507</span> &nbsp;&nbsp; <span class="iconfont">&#xe603;</span> <span>普通</span></p>
+				<p><span>{{phone}}</span> &nbsp;&nbsp; <span class="iconfont">&#xe603;</span> <span>普通</span></p>
 				<p>健康币:<span>0</span> 成长值:<span>0</span></p>
 			</div>
 			
@@ -73,9 +73,12 @@
 				<ul>
 					<li>
 						<a href="#">
-							欢迎您:<span>186****6507</span>
+							欢迎您:<span>{{phone}}</span>
 						</a> |
-						<a href="#">退出</a>
+						<v-touch
+							tag="a"
+							@tap="exit()"
+						>退出</v-touch>
 					</li>
 					<li>
 						<a href="#">关于健客</a> |
@@ -92,8 +95,31 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
+import Cookie from "vue-cookies"
+import zmhUI from "@lib"
 export default {
-    name:"Mine"
+	name:"Mine",
+	methods:{
+		exit(){
+			zmhUI.MessageBox({
+				title:"退出登陆",
+				content:"是否退出",
+				ok:()=>{
+					Cookie.remove("token")
+					this.$router.push("/home")
+				}
+			})
+			
+		}
+		
+	},
+	computed:{
+        ...mapState({
+            phone:state=>state.account.name,
+            pwd:state=>state.account.pwd
+        })
+    }
 }
 </script>
 
