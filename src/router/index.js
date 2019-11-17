@@ -16,6 +16,7 @@ import City from "./city"
 import BoyCon from './boy/boy_con/index'
 import Detail from "./detail"
 import Cookie from "vue-cookies"
+import Info from './info'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -38,6 +39,7 @@ const router = new VueRouter({
         finds,
         BoyCon,
         Detail,
+        Info,
         {
             path:"/mine",
             name:"mine",
@@ -45,7 +47,7 @@ const router = new VueRouter({
             meta:{
                 flag:true,
                 requireAuth:true
-            }
+            },
         },
         global,
         gtype,

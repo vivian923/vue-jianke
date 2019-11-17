@@ -40,11 +40,9 @@ export default {
         })
     },
     created(){
-        if (
-      !(sessionStorage.getItem("cityList") && sessionStorage.getItem("hotCity"))
-    ) {
-      this.$store.dispatch("city/handleGetList");
-    }
+        if (!(sessionStorage.getItem("cityList") && sessionStorage.getItem("hotCity"))){
+          this.$store.dispatch("city/handleGetList");
+        }
     },
     methods:{
         handleTo(child){

@@ -1,8 +1,8 @@
 import axios from "axios"
 import {goodsList} from "@api/goods"
 let state = {
-    goodsList:[],
-    selectedAll:true,
+    goodsList: [],
+    selectedAll:true
 }
 
 let actions = {
@@ -65,9 +65,6 @@ let getters={
             if(state.goodsList[i].flag){
                 sCount+=state.goodsList[i].goodsNum;
                 sPrice+=((state.goodsList[i].goodsPrice*10*state.goodsList[i].goodsNum))
-                // if(sPrice>=50){
-                //     sPrice-=10
-                // }
             }
         }
         return{
@@ -75,7 +72,6 @@ let getters={
             sCount
         }
     }
-
 }
 export default{
     state,
