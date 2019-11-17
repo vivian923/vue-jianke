@@ -24,10 +24,11 @@ export default {
             })
         },
         handlefinishpullDown(){
-            //通知下次刷子新
-            this.scroll.finishpullDown();
-            //重新计算
-            this.scroll.refresh();
+            
+            //通知better-scroll进行下一次下拉刷新
+      this.scroll.finishPullDown();
+      //重新计算better-scroll;
+      this.scroll.refresh();
         }
 
     },

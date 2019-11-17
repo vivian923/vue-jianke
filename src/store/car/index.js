@@ -1,11 +1,8 @@
-
 import axios from "axios"
 
 let state = {
     goodsList: [],
     selectedAll:true,
-    sPrice:0,
-    sCount:0
 }
 
 let actions = {
@@ -19,6 +16,13 @@ let actions = {
         }
         commit("handleMutationsGetGoods", data.data)
     },
+    async  handleDelete({dispatch},prarms){
+        let data= await  axios({
+                 method:"delete",
+                 url:"http://localhost:3000/goods"+"/"+prarms,
+             })      
+            dispatch("handleActionsGetGoods")
+         }
 }
 
 
@@ -58,20 +62,20 @@ let mutations = {
 
 let getters={
     countPrice(state){
-        state.sPrice=0,state.sCount=0;
+      let  sPrice=0,sCount=0;
         for(var i=0;i<state.goodsList.length;i++){
             if(state.goodsList[i].flag){
-                state.sCount+=state.goodsList[i].num;
-                state.sPrice+=(state.goodsList[i].num * (state.goodsList[i].price * 10))/10
-                if(state.sPrice>=500){
-                    state.sPrice-=100
+                sCount+=state.goodsList[i].num;
+                sPrice+=(state.goodsList[i].price *10*state.goodsList[i].num )
+                if(sPrice>=500){
+                    sPrice-=100
                 }
             }
         }
-        // return{
-        //     sPrice,
-        //     sCount
-        // }
+        return{
+            sPrice,
+            sCount
+        }
     }
 
 }

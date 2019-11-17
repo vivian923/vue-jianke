@@ -7758,10 +7758,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant@^2.2.13-beta.0:
-  version "2.2.13-beta.0"
-  resolved "https://registry.npm.taobao.org/vant/download/vant-2.2.13-beta.0.tgz?cache=0&sync_timestamp=1573354961984&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvant%2Fdownload%2Fvant-2.2.13-beta.0.tgz#46f8611fa852665f935f18dfceb31728a3ea859e"
-  integrity sha1-RvhhH6hSZl+TXxjfzrMXKKPqhZ4=
+vant@^2.2.13:
+  version "2.2.13"
+  resolved "https://registry.npm.taobao.org/vant/download/vant-2.2.13.tgz#394b6c75c919d2924bd025ae1cc797aac0ee76dd"
+  integrity sha1-OUtsdckZ0pJL0CWuHMeXqsDudt0=
   dependencies:
     "@babel/runtime" "7.x"
     "@vant/icons" "1.1.15"
@@ -7796,6 +7796,11 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
+
+vue-cookies@^1.5.13:
+  version "1.5.13"
+  resolved "https://registry.npm.taobao.org/vue-cookies/download/vue-cookies-1.5.13.tgz#b1ca79a2663bf9a4f36982557011cab5ee2196c0"
+  integrity sha1-scp5omY7+aTzaYJVcBHKte4hlsA=
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

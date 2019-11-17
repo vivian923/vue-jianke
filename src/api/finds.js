@@ -2,7 +2,7 @@ import http from  "@utils/request";
 
 export const finds=(KeyWord)=>http({
     method:"get",
-    url:"Search/SearchPanGuWordResult",
+    url:"/Search/SearchPanGuWordResult",
     data:{     
             KeyWord:KeyWord
     },

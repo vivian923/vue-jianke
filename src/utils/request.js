@@ -13,12 +13,10 @@ server.interceptors.request.use((config)=>{
         config.params = {...config.data};
     }
     if(config.url !="/Search/SearchPanGuWordResult"){
+       
         zmhUI.Loading.loadingMount();
     }
-    //loading.loadingMount();
-    
-    // config.headers["content-type"]="application/json";
-    // config.headers["token"]="";
+
     return config;
 
 },(err)=>{

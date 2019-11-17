@@ -35,17 +35,17 @@
         <div class="remove">
           <p>
             <span>移入收藏夹</span>
-            <span>删除</span>
+            <span @click="handleDelete(item.id)">删除</span>
           </p>
         </div>
       </div>
     </main>
     <div class="complete">
       <span>
-        合计： {{sPrice}}
+        合计： {{countPrice.sPrice/10}}
       </span>
       <span>
-        去结算({{sCount}})
+        去结算({{countPrice.sCount}})
       </span>
     </div>
   </div>
@@ -53,19 +53,23 @@
 
 <script>
 import Vue from 'vue';
-import{mapState,mapMutations,mapGetters}from "vuex"
+import{mapState,mapMutations,mapGetters,mapActions}from "vuex"
 export default {
   name: "car",
   created(){
     this.$store.dispatch("car/handleActionsGetGoods")
   },
+  
    computed: {
+   
     ...mapState({
       goodsList: state => state.car.goodsList,
       selectedAll:state => state.car.selectedAll,
       sPrice:state => state.car.sPrice,
-      sCount:state => state.car.sCount
-      
+      sCount:state => state.car.sCount,
+       ...mapGetters({
+            countPrice:"car/countPrice"
+        })
     })
   },
    methods: {
@@ -75,9 +79,11 @@ export default {
             handleReduce:"car/handleReduce",
             handleAdd:"car/handleAdd"
         }),
-         ...mapGetters({
-            countPrice:"car/countPrice"
-        })
+          ...mapActions({
+             handleDelete:"car/handleDelete",
+            //  handleReduce:"car/handleReduce",
+            //  handleAdd:"car/handleAdd",
+     }),
         
     },
 };
