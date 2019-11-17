@@ -35,14 +35,10 @@
         <div class="remove">
           <p>
             <span>移入收藏夹</span>
-<<<<<<< HEAD
-            <span @click="handleDelete(item.id)">删除</span>
-=======
             <v-touch
             tag="span"
             @tap="del(item._id)"
             >删除</v-touch>
->>>>>>> master
           </p>
         </div>
       </div>
