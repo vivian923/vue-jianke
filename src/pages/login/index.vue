@@ -43,33 +43,47 @@
 </template>
 
 <script>
-import axios from "axios"
-import Cookie from "vue-cookies"
+import {loginNode} from "@api/users"
+// import axios from "axios"
+// import Cookie from "vue-cookies"
 
 export default {
     name:'login',
     methods:{
-        login(){
-                axios({
-                    method:"get",
-                    url:"http://localhost:3000/user?username="+this.$refs.phone.value
-                }).then((data)=>{
-                    if(data.data[0].username==this.$refs.phone.value && data.data[0].pwd==this.$refs.pwd.value){
-                        Cookie.set("token",this.$refs.phone.value,"20min")
-                        let info={
-                            name:this.$refs.phone.value,
-                            pwd:this.$refs.pwd.value
-                        }    
-                        this.$store.dispatch("account/handleUser",info);
-                        alert("登录成功")
-                        this.$refs.phone.value="";
-                        this.$refs.pwd.value="";
-                        let path=this.$route.params.to||"/home";
-                        this.$router.push(path)
-                    }else{
-                        alert("登录失败")
-                    }
-                })
+        async login(){
+                let data = await loginNode(this.$refs.phone.value,this.$refs.pwd.value)
+                console.log(data);
+                if(data.data.code==1){
+                    this.$store.dispatch("account/handleUser",data.data.data.username);
+                    alert("登录成功")
+                    this.$refs.phone.value="";
+                    this.$refs.pwd.value="";
+                    let path=this.$route.params.to||"/home";
+                    this.$router.push(path)
+                }else{
+                    alert("登录失败")
+                }
+                this.dispatch
+                // axios({
+                //     method:"get",
+                //     url:"http://localhost:3000/user?username="+this.$refs.phone.value
+                // }).then((data)=>{
+                //     if(data.data[0].username==this.$refs.phone.value && data.data[0].pwd==this.$refs.pwd.value){
+                //         Cookie.set("token",this.$refs.phone.value,"20min")
+                //         let info={
+                //             name:this.$refs.phone.value,
+                //             pwd:this.$refs.pwd.value
+                //         }    
+                //         this.$store.dispatch("account/handleUser",info);
+                //         alert("登录成功")
+                //         this.$refs.phone.value="";
+                //         this.$refs.pwd.value="";
+                //         let path=this.$route.params.to||"/home";
+                //         this.$router.push(path)
+                //     }else{
+                //         alert("登录失败")
+                //     }
+                // })
                 
         }
     }

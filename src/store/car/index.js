@@ -1,20 +1,17 @@
 import axios from "axios"
-
+import {goodsList} from "@api/goods"
 let state = {
-    goodsList: [],
+    goodsList:[],
     selectedAll:true,
 }
 
 let actions = {
-    async  handleActionsGetGoods({ commit }) {
-        let data = await axios({
-            methods: "get",
-            url: "http://localhost:3000/goods"
-        })
-        for(var i=0;i<data.data.length;i++){
-            data.data[i].flag=true;
+     async handleActionsGetGoods({commit}) {
+        let data = await goodsList(1,10)
+        for(var i=0;i<data.data.list.length;i++){
+            data.data.list[i].flag=true;
         }
-        commit("handleMutationsGetGoods", data.data)
+        commit("handleMutationsGetGoods",data.data.list) 
     },
     async  handleDelete({dispatch},prarms){
         let data= await  axios({
@@ -27,8 +24,8 @@ let actions = {
 
 
 let mutations = {
-    handleMutationsGetGoods(state, prarms) {
-        state.goodsList = prarms;
+    handleMutationsGetGoods(state,data) {
+        state.goodsList=data;
     },
     handleChange(){
         state.selectedAll=!state.selectedAll;
@@ -49,27 +46,28 @@ let mutations = {
         state.selectedAll=stop;
     },
     handleReduce(state,index){
-        if(state.goodsList[index].num<=1){
-            state.goodsList[index].num=1
+        if(state.goodsList[index].goodsNum<=1){
+            state.goodsList[index].goodsNum=1
         }else{
-            state.goodsList[index].num--
+            state.goodsList[index].goodsNum--
         }   
     },
     handleAdd(state,index){
-        state.goodsList[index].num++
+
+        state.goodsList[index].goodsNum++
     }
 }
 
 let getters={
-    countPrice(state){
-      let  sPrice=0,sCount=0;
+    countPrice(){
+        let sPrice=0,sCount=0;
         for(var i=0;i<state.goodsList.length;i++){
             if(state.goodsList[i].flag){
-                sCount+=state.goodsList[i].num;
-                sPrice+=(state.goodsList[i].price *10*state.goodsList[i].num )
-                if(sPrice>=500){
-                    sPrice-=100
-                }
+                sCount+=state.goodsList[i].goodsNum;
+                sPrice+=((state.goodsList[i].goodsPrice*10*state.goodsList[i].goodsNum))
+                // if(sPrice>=50){
+                //     sPrice-=10
+                // }
             }
         }
         return{

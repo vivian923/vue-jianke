@@ -26,7 +26,15 @@ module.exports={
             "/api":{
                 target:"http://39.97.33.178",
                 changeOrigin:true
-            }
+            },
+            "/users":{
+                target:"http://localhost:9000",
+                changeOrigin:true
+            },
+            "/goods":{
+                target:"http://localhost:9000",
+                changeOrigin:true
+            },
         }
        
 

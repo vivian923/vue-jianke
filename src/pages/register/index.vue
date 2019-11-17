@@ -36,7 +36,8 @@
 </template>
 
 <script>
-import axios from "axios"
+// import axios from "axios"
+import {registerNode} from "@api/users"
 export default {
         name:"register",
         data(){
@@ -46,34 +47,43 @@ export default {
             }
         },
         methods:{
-            register(){
+           async register(){
                 if(!(/^1[3456789]\d{9}$/.test(Number(this.phone)))){
                     alert("手机号格式错误")
                 }else{
-                    axios({
-                    method:"get",
-                    url:"http://localhost:3000/user?username="+this.phone,
-                }).then((data)=>{
-                    if(data.data[0]){
-                        alert("用户名重复")
-                    }else{
-                        let info={
-                            account:this.phone,
-                            pwd:this.pwd
-                         }
-                        axios({
-                            method:"post",
-                            url:"http://localhost:3000/user",
-                            data:{
-                                username:this.phone,
-                                pwd:this.pwd
-                            }
-                        })
-                            alert("注册成功")
-                            this.$router.push("/login")
-                        }
-                    })
-                 }
+                  let data=await registerNode(this.phone,this.pwd)
+                  if(data.data.status == 1){
+                      alert(data.data.info)
+                      this.$router.push("/login")
+                  }else{
+                        alert(data.data.info)
+                  }
+                }
+                // }else{
+                //     axios({
+                //     method:"get",
+                //     url:"http://localhost:3000/user?username="+this.phone,
+                // }).then((data)=>{
+                //     if(data.data[0]){
+                //         alert("用户名重复")
+                //     }else{
+                //         let info={
+                //             account:this.phone,
+                //             pwd:this.pwd
+                //          }
+                //         axios({
+                //             method:"post",
+                //             url:"http://localhost:3000/user",
+                //             data:{
+                //                 username:this.phone,
+                //                 pwd:this.pwd
+                //             }
+                //         })
+                //             alert("注册成功")
+                //             this.$router.push("/login")
+                //         }
+                //     })
+                //  }
             }
         }
 }
@@ -107,7 +117,6 @@ section .login_wrap .login_box .pwd_item{
     position: relative;
 }
 section .login_wrap .login_box .pwd_item .pwd-switch{
-    width:0.74rem;
     height:0.23rem;
     text-align:center;
     line-height:.23rem;

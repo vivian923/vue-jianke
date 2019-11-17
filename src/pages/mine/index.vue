@@ -117,7 +117,6 @@ export default {
 	computed:{
         ...mapState({
             phone:state=>state.account.name,
-            pwd:state=>state.account.pwd
         })
     }
 }
