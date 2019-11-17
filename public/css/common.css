@@ -11,7 +11,7 @@ b,strong{font-weight:normal}
 i,em{font-style:normal}
 ul,ol,li{list-style:none;}
 img{display:block;border:0;}
-input,button{outline:none;border:0;}
+input,button{outline:none;border:0;font:normal}
 *{box-sizing: border-box;}
 #app{
     height:100%
