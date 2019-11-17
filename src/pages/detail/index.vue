@@ -4,7 +4,7 @@
          <main>
         <section class="slider">
             <div class="swiper">
-                <img :src="productImageUrl">
+                <img ref="pic" :src="productImageUrl">
             </div>
             <div class="slider-num">
                 <span>1/2</span>
@@ -30,20 +30,20 @@
             </ul>
             <div class="detail">
                 <div class="price">
-                    <i>￥</i><em>{{productPrice/100}}</em>
+                    <i>￥</i><em ref="price">{{productPrice/100}}</em>
                 </div>
                 <div class="rax">
                     预计税费：￥1.96，实际税费请以提交订单时为准。<i class="iconfont">&#xe600;</i>  
                 </div>
                 <h1>
-                    <span><i class="iconfont">&#xe6ee;</i>全球购</span><em>{{introduction}}</em>
+                    <span><i class="iconfont">&#xe6ee;</i>全球购</span><em ref="intro">{{introduction}}</em>
                 </h1>
                 <div class="coupon">
                     <div class="coupon-box">
                         <img src="https://img.tianditao.com/mall/common/201911/5cc06547cd0e494bbaf78745810eec33.png">
                     </div>
                 </div>
-                <p> <em>{{productName}}</em> 效期至2020-02-01</p>
+                <p> <em ref="name">{{productName}}</em> 效期至2020-02-01</p>
             </div>
             <div class="desc">
                 <dl>
@@ -92,9 +92,16 @@
         </div>
         <div  class="info">
             <i class="iconfont">&#xe62c;</i><em>{{count}}</em>
-            <span>购物车</span>
+            <router-link
+            tag="span"
+            to="/cart"
+            >购物车</router-link>
         </div>
-        <div class="cart">加入购物车</div>
+        <v-touch
+            tag="div"
+            @tap="addCart()" 
+            class="cart">
+            加入购物车</v-touch>
         <div class="cart">立即购买</div>
     </footer>
     </div>
@@ -103,6 +110,7 @@
 <script>
 import Vue from 'vue'
 import {mapState,mapGetters} from 'vuex'
+import {goodsAdd} from "@api/goods"
 export default {
     name:"detail",
     created(){
@@ -129,6 +137,18 @@ export default {
             introduction:""
         }
     },
+    methods:{
+         addCart(){
+            let info={
+                pic:this.$refs.pic.src,
+                price:this.$refs.price.innerHTML,
+                name:this.$refs.name.innerHTML,
+                intro:this.$refs.intro.innerHTML,
+                num:1
+            }
+           goodsAdd(info) 
+        }
+    }
 }
 </script>
 

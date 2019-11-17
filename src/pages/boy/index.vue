@@ -2,9 +2,32 @@
   <div class="boy">
     <div class="main">
       <div class="slider" id="top">
+       <van-swipe :autoplay="3000" indicator-color="white">
+      <van-swipe-item>
         <img
-          src="https://img.tianditao.com/mall/vmall/index/201907/3e008d3d41b4453abc6692b1bb43f166.jpg"
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/0dad9af6116e4738875569501e234d28.jpg"
         />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201909/d123f3a2abfd4ea99bbfcefc05b38ad1.jpg"
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/da2999cb66e64abaa3f3770ba82a0233.jpg"
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/7ef1629ecfda46b78a6519593dee8f13.jpg"
+        />
+      </van-swipe-item>
+    </van-swipe>
       </div>
       <div class="nav">
         <router-link 
@@ -210,6 +233,9 @@
 </template>
 
 <script>
+import Vue from "vue";
+import { Swipe, SwipeItem } from "vant";
+Vue.use(Swipe).use(SwipeItem);
 import { boy } from "@api/boy";
 import {throttle} from '@utils/method';
 export default {

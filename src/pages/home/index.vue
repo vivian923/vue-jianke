@@ -18,9 +18,32 @@
 
     <div class="bigbox">
       <div class="slider">
+        <van-swipe :autoplay="3000" indicator-color="white">
+      <van-swipe-item>
         <img
-          src="https://img.tianditao.com/mall/vmall/index/201911/29a7cff6f34948b590b6c78c1ed5373d.jpg"
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/d81bc22b6a6e4df5bbe4eb6711c8f94c.jpg"
         />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/2ca99d4a210a48a7b84daf9d86057423.jpg"
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/147f02f472184a8885c7f62b868e4d54.png"
+        />
+      </van-swipe-item>
+      <van-swipe-item>
+        <img
+          class="banner"
+          src="https://img.tianditao.com/mall/vmall/index/201911/7ef1629ecfda46b78a6519593dee8f13.jpg"
+        />
+      </van-swipe-item>
+    </van-swipe>
       </div>
       <div class="home_nav">
         <ul>
@@ -229,6 +252,9 @@
 </template>
 
 <script>
+import Vue from "vue";
+import { Swipe, SwipeItem } from "vant";
+Vue.use(Swipe).use(SwipeItem);
 export default {
   name: "Home",
   data() {
@@ -301,6 +327,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+  z-index: 999;
 }
 .header span:nth-of-type(1){
 	font-size: 0.4rem;

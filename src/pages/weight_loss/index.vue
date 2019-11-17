@@ -8,7 +8,9 @@
       />
     </main>
     <div class="product">
-      <div v-for="(item,index) in list" :key="index">
+      <div v-for="(item,index) in list" :key="index"
+      :to="{name:'detail',params:{productImageUrl:item.productImageUrl,productName:item.productName,productPrice:item.productPrice,introduction:item.introduction}}"
+      >
         <img :src="item.productImageUrl"
         />
         <div class="construct">{{item.introduction}}</div>

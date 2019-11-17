@@ -4,8 +4,9 @@
       <span>复方阿胶浆48支专享券</span>
     </header>
     
-    <div class="listBox" v-for="(item,index) in list" :key="index">
-                  
+    <div class="listBox" v-for="(item,index) in list" :key="index"
+    :to="{name:'detail',params:{productImageUrl:item.productImageUrl,productName:item.productName,productPrice:item.productPrice,introduction:item.introduction}}"
+    >          
       <img :src="item.productImageUrl"
       />
       <div>
@@ -18,8 +19,7 @@
       </div>
     </div>
     
-    
-    
+
     
   </main>
 </template>
