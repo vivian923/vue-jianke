@@ -206,7 +206,10 @@
         </ul>
       </div>
       <div class="nav_content">
-        <div class="item_con" v-for="(item,index) in boyShop" :key="index">
+        <router-link class="item_con" v-for="(item,index) in boyShop" 
+        :key="index" 
+        :to="{name:'detail',params:{productImageUrl:item.productImageUrl,productName:item.productName,productPrice:item.productPrice,introduction:item.introduction}}" 
+        tag="div">
           <img :src="item.productImageUrl" />
           <p>{{item.productName}}</p>
           <p>{{item.introduction}}</p>
@@ -214,16 +217,16 @@
             <span>￥{{item.productPrice/100}}.00</span>
             <button>提交需求</button>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
     <div class="footer">
       <div class="mao">
-        <a href="#top">回到顶部</a>
-        <a href="#miaosha">限量秒杀</a>
-        <a href="#pinpai">品牌汇</a>
-        <a href="#xingfu">性福秘籍</a>
-        <a href="#remen">热门用药</a>
+        <a href="boy#top">回到顶部</a>
+        <a href="boy#miaosha">限量秒杀</a>
+        <a href="boy#pinpai">品牌汇</a>
+        <a href="boy#xingfu">性福秘籍</a>
+        <a href="boy#remen">热门用药</a>
       </div>
     </div>
   </div>

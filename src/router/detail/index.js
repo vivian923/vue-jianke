@@ -1,5 +1,5 @@
 export default{
-    path:"/detail",
+    path:"/detail/:productImageUrl/:productName/:productPrice/:introduction",
     component:_=>import ("@pages/detail"),
     name:"detail",
     meta:{

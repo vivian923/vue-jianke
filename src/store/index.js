@@ -4,6 +4,7 @@ import classify from "./classify"
 import city from "./city"
 import car from "./car"
 import account from "./account"
+import detail from "./detail"
 Vue.use(Vuex)
 
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
         classify,
         city,
         car,
-        account
+        account,
+        detail
     }
 })
