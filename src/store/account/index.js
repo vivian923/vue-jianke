@@ -1,7 +1,7 @@
 
 let state={
-    name:"",
-    pwd:""
+    name:sessionStorage.getItem("username")||"",
+    
 }
 
 let actions={
@@ -12,8 +12,8 @@ let actions={
 
 let mutations={
     handleMutationsUser(state,params){
-        state.name=params.name,
-        state.pwd=params.pwd
+        state.name=params
+        sessionStorage.setItem("username",params)
     }
 }
 

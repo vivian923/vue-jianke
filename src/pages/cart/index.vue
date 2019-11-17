@@ -16,17 +16,17 @@
         <div class="item-body">
           <input type="checkbox" class="solecheck" :checked="item.flag" @change="handleGoodsItemChnage(index)"/>
           <img
-            :src="item.img"
+            :src="item.goodsImgUrl"
           />
           <div class="info">
             <span class="prodcutName">{{item.goodsName}}</span>
-            <p class="marke">规格：9g*40s</p>
-            <p class="price">{{item.price}}</p>
+            <p class="marke">{{item.goodsIntro}}</p>
+            <p class="price">{{item.goodsPrice}}</p>
             <h2>
               <s>￥0</s>
               <div>
                 <button @click="handleReduce(index)">-</button>
-                <input type="text" class="input" :value="item.num"/>
+                <input type="text" class="input" :value="item.goodsNum"/>
                 <button @click="handleAdd(index)">+</button>
               </div>
             </h2>
@@ -35,17 +35,20 @@
         <div class="remove">
           <p>
             <span>移入收藏夹</span>
-            <span>删除</span>
+            <v-touch
+            tag="span"
+            @tap="del(item._id)"
+            >删除</v-touch>
           </p>
         </div>
       </div>
     </main>
     <div class="complete">
       <span>
-        合计： {{sPrice}}
+        合计： {{countPrice.sPrice/10}}
       </span>
       <span>
-        去结算({{sCount}})
+        去结算({{countPrice.sCount}})
       </span>
     </div>
   </div>
@@ -54,19 +57,22 @@
 <script>
 import Vue from 'vue';
 import{mapState,mapMutations,mapGetters}from "vuex"
+import {goodsDel} from "@api/goods"
 export default {
   name: "car",
   created(){
-    this.$store.dispatch("car/handleActionsGetGoods")
+      this.$store.dispatch("car/handleActionsGetGoods")
   },
    computed: {
     ...mapState({
       goodsList: state => state.car.goodsList,
       selectedAll:state => state.car.selectedAll,
-      sPrice:state => state.car.sPrice,
-      sCount:state => state.car.sCount
-      
-    })
+      // sPrice:state => state.car.sPrice,
+      // sCount:state => state.car.sCount
+    }),
+     ...mapGetters({
+            countPrice:"car/countPrice"
+        })
   },
    methods: {
         ...mapMutations({
@@ -74,11 +80,11 @@ export default {
             handleGoodsItemChnage:"car/handleGoodsItemChnage",
             handleReduce:"car/handleReduce",
             handleAdd:"car/handleAdd"
-        }),
-         ...mapGetters({
-            countPrice:"car/countPrice"
-        })
-        
+        }), 
+        del(id){
+          goodsDel(id)
+          this.$store.dispatch("car/handleActionsGetGoods")
+        } 
     },
 };
 </script>

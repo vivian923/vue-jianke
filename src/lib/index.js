@@ -1,7 +1,6 @@
 import Header from "./header"
 import BScroll from "./bscroll"
 import MessageBox from "./messageBox"
-import Message from "./message"
 import Loading from "./loading"
 const UIcomponents=[
     Header,
@@ -21,8 +20,7 @@ const install =(Vue)=>{
 export default {
     install,
     MessageBox,
-    Loading,
-    Message
+    Loading
 }
 /*
 Vue.use:
