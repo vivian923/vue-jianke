@@ -107,7 +107,6 @@ section .login_wrap .login_box .pwd_item{
     position: relative;
 }
 section .login_wrap .login_box .pwd_item .pwd-switch{
-    width:0.74rem;
     height:0.23rem;
     text-align:center;
     line-height:.23rem;

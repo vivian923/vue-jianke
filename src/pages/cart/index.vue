@@ -3,16 +3,16 @@
     <main>
       <Header title="购物车" icon />
       <div class="checkall">
-         <input type="checkbox" class="solecheckall"
+        <input type="checkbox" class="solecheckall"
 
-         :checked="selectedAll"
+        :checked="selectedAll"
 
-         @click="handleChange()"/>
+        @click="handleChange()"/>
         <span class="self">健客自营</span>
         <span class="self1">全场满500立减100</span>
       </div>
       <div class="product" v-for="(item,index) in goodsList" :key="index">
-           
+          
         <div class="item-body">
           <input type="checkbox" class="solecheck" :checked="item.flag" @change="handleGoodsItemChnage(index)"/>
           <img
@@ -42,10 +42,10 @@
     </main>
     <div class="complete">
       <span>
-        合计： {{sPrice}}
+        合计： {{countPrice.sPrice/10}}
       </span>
       <span>
-        去结算({{sCount}})
+        去结算({{countPrice.sCount}})
       </span>
     </div>
   </div>
@@ -59,27 +59,23 @@ export default {
   created(){
     this.$store.dispatch("car/handleActionsGetGoods")
   },
-   computed: {
+  computed: {
     ...mapState({
       goodsList: state => state.car.goodsList,
-      selectedAll:state => state.car.selectedAll,
-      sPrice:state => state.car.sPrice,
-      sCount:state => state.car.sCount
-      
+      selectedAll:state => state.car.selectedAll
+    }),
+    ...mapGetters({
+      countPrice:"car/countPrice"
     })
   },
-   methods: {
-        ...mapMutations({
-            handleChange:"car/handleChange",
-            handleGoodsItemChnage:"car/handleGoodsItemChnage",
-            handleReduce:"car/handleReduce",
-            handleAdd:"car/handleAdd"
-        }),
-         ...mapGetters({
-            countPrice:"car/countPrice"
-        })
-        
-    },
+  methods: {
+    ...mapMutations({
+        handleChange:"car/handleChange",
+        handleGoodsItemChnage:"car/handleGoodsItemChnage",
+        handleReduce:"car/handleReduce",
+        handleAdd:"car/handleAdd"
+    })
+  }
 };
 </script>
 

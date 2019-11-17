@@ -3,9 +3,9 @@
         <div class="main">
 			<Header title="我的健客" icon/>
 			<div class="top">
-				<div class="head">
-                    <img src="../../../public/img/nomal.png" alt="">
-                </div>
+				<router-link class="head" to="/info">
+                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573922178940&di=a297edb44786064a43e24af6b65dc790&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F27%2F20180827130009_yknlb.thumb.224_0.jpg" alt="">
+                </router-link>
 				<p><span>{{phone}}</span> &nbsp;&nbsp; <span class="iconfont">&#xe603;</span> <span>普通</span></p>
 				<p>健康币:<span>0</span> 成长值:<span>0</span></p>
 			</div>
@@ -148,6 +148,7 @@ export default {
 	border-radius: 50%;
 	background: white;
 	margin-bottom: 0.05rem;
+	overflow: hidden;
 }
 .top .head img{
     width: 100%;

@@ -4,7 +4,7 @@
          <main>
         <section class="slider">
             <div class="swiper">
-                <img src="https://img.tianditao.com/mall/product/201910/17512b0c0801416d91fc97d10393e8dc.jpg?x-oss-process=style/img600">
+                <img :src="productImageUrl">
             </div>
             <div class="slider-num">
                 <span>1/2</span>
@@ -30,20 +30,20 @@
             </ul>
             <div class="detail">
                 <div class="price">
-                    <i>￥</i>17.50
+                    <i>￥</i><em>{{productPrice/100}}</em>
                 </div>
                 <div class="rax">
                     预计税费：￥1.96，实际税费请以提交订单时为准。<i class="iconfont">&#xe600;</i>  
                 </div>
                 <h1>
-                    <span><i class="iconfont">&#xe6ee;</i>全球购</span>NC护肝片水飞蓟养肝护肝对化学性肝损伤有辅助保护作用保健品
+                    <span><i class="iconfont">&#xe6ee;</i>全球购</span><em>{{introduction}}</em>
                 </h1>
                 <div class="coupon">
                     <div class="coupon-box">
                         <img src="https://img.tianditao.com/mall/common/201911/5cc06547cd0e494bbaf78745810eec33.png">
                     </div>
                 </div>
-                <p>解酒养肝 效期至2020-02-01</p>
+                <p> <em>{{productName}}</em> 效期至2020-02-01</p>
             </div>
             <div class="desc">
                 <dl>
@@ -91,7 +91,7 @@
             <span>咨询药师</span>
         </div>
         <div  class="info">
-            <i class="iconfont">&#xe62c;</i><em>100</em>
+            <i class="iconfont">&#xe62c;</i><em>{{count}}</em>
             <span>购物车</span>
         </div>
         <div class="cart">加入购物车</div>
@@ -101,8 +101,34 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import {mapState,mapGetters} from 'vuex'
 export default {
-    
+    name:"detail",
+    created(){
+        let {productImageUrl,productName,productPrice,introduction} = this.$route.params;
+        this.productImageUrl = productImageUrl;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.introduction = introduction;
+        this.$store.dispatch("detail/handleGetCount")
+    },
+  computed: {
+    ...mapState({
+      sCount:state => state.sCount
+    }),
+    ...mapGetters({
+      count:"detail/count"
+    })
+  },
+    data() {
+        return {
+            productImageUrl:"",
+            productName:"",
+            productPrice:"",
+            introduction:""
+        }
+    },
 }
 </script>
 
@@ -218,13 +244,13 @@ main{
 }
 .product .detail h1 span{
     display:inline-block;
-    width:.52rem;
     height:.192rem;
     border:1px solid #723eb8;
     font-size:10px;
     color:#723eb8;
     line-height:.192rem;
     margin-right:5px;
+    padding-right: .01rem;
 }
 .product .detail h1{
     font-weight: 700;
@@ -235,7 +261,6 @@ main{
 
 .product .detail h1 span i{
     display:inline-block;
-    width:30%;
     height:100%;
     background-color:#723eb8;
     color:#fff;
