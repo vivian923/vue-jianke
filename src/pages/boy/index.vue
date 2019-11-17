@@ -212,7 +212,7 @@
           <p>{{item.introduction}}</p>
           <div class="btn">
             <span>￥{{item.productPrice/100}}.00</span>
-            <button>提交需求</button>
+            <button id="need">提交需求</button>
           </div>
         </div>
       </div>
@@ -568,7 +568,9 @@ export default {
   border-radius: 0.2rem;
   background: #f53b10;
   color: #fff;
+  font:-webkit-control
 }
+
 .footer {
   height: 0.5rem;
   padding: 0.07rem 0.06rem;
