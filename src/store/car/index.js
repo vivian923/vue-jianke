@@ -1,7 +1,7 @@
 import axios from "axios"
 import {goodsList} from "@api/goods"
 let state = {
-    goodsList: [],
+    goodsList:[],
     selectedAll:true
 }
 
@@ -14,7 +14,7 @@ let actions = {
         commit("handleMutationsGetGoods",data.data.list) 
     },
     async  handleDelete({dispatch},prarms){
-        let data= await  axios({
+        await  axios({
                  method:"delete",
                  url:"http://localhost:3000/goods"+"/"+prarms,
              })      

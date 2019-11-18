@@ -1,19 +1,24 @@
 import axios from "axios"
-
+import {goodsList} from "@api/goods"
 let state = {
     sCount : 0
 }
 
 let actions = {
     async handleGetCount({commit}){
-        let data = await axios({
-            methods: "get",
-            url: "http://10.60.13.245:3000/goods"
-        })
+        // let data = await goodsList(1,10)
+        // let Num=0;
+        // for(var i=0;i<data.data.list.length;i++){
+        //     Num+=data.data.list[i].goodsNum
+        // }
+        
+        // commit("mutationsGetCount",Num);
+        let data=this.state.car.goodsList
         let Num=0;
-        for(var i=0;i<data.data.length;i++){
-            Num+=data.data[i].num
+        for(var i=0;i<data.length;i++){
+            Num+=data[i].goodsNum
         }
+        
         commit("mutationsGetCount",Num);
     }
 }
