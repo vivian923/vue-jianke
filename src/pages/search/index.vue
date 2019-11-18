@@ -54,7 +54,6 @@ export default {
             throttle(async ()=>{
                 let data = await shopSearch(newVal);
                 this.searchR=data?data:[];
-                console.log(data)
                 if(this.searchR.length>0){
                     this.$refs.searchResult.style.display="block";
                 }else{
@@ -119,7 +118,7 @@ export default {
     }
     .hotSearch .tag_list{
         width: 3.43rem;
-        height: 1.52rem;
+        min-height: 1.52rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;

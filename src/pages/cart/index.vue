@@ -3,16 +3,16 @@
     <main>
       <Header title="购物车" icon />
       <div class="checkall">
-         <input type="checkbox" class="solecheckall"
+        <input type="checkbox" class="solecheckall"
 
-         :checked="selectedAll"
+        :checked="selectedAll"
 
-         @click="handleChange()"/>
+        @click="handleChange()"/>
         <span class="self">健客自营</span>
         <span class="self1">全场满500立减100</span>
       </div>
       <div class="product" v-for="(item,index) in goodsList" :key="index">
-           
+          
         <div class="item-body">
           <input type="checkbox" class="solecheck" :checked="item.flag" @change="handleGoodsItemChnage(index)"/>
           <img
@@ -35,14 +35,10 @@
         <div class="remove">
           <p>
             <span>移入收藏夹</span>
-<<<<<<< HEAD
-            <span @click="handleDelete(item.id)">删除</span>
-=======
             <v-touch
             tag="span"
             @tap="del(item._id)"
             >删除</v-touch>
->>>>>>> master
           </p>
         </div>
       </div>

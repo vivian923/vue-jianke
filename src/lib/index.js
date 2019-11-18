@@ -20,7 +20,7 @@ const install =(Vue)=>{
 export default {
     install,
     MessageBox,
-    Loading
+    Loading,
 }
 /*
 Vue.use:

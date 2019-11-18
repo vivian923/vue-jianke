@@ -2,7 +2,10 @@
     <div class="boyCon">
         <Header :title="title" icon/>
         <div class="drug">
-            <div class="drugs" v-for="(item,index) in boyList" :key="index">
+            <router-link class="drugs" 
+            v-for="(item,index) in boyList" 
+            :key="index" 
+            :to="{name:'detail',params:{productImageUrl:item.productImageUrl,productName:item.productName,productPrice:item.productPrice,introduction:item.introduction}}">
                 <img :src="item.productImageUrl" />
                 <p>{{item.productName}}</p>
                 <p>{{item.introduction}}</p>
@@ -10,7 +13,7 @@
                     <span>￥{{item.productPrice/100}}.00</span>
                     <button>提交需求</button>
                 </div>
-            </div>
+            </router-link>
         </div>
     </div>
 </template>

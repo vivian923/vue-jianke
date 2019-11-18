@@ -39,7 +39,7 @@
                 </div>
             </section> 
         </div> 
-      
+
 </template>
 
 <script>
@@ -160,10 +160,10 @@ section .login_wrap .login-bar .login-btn{
     width: 100%;
     height: .32rem;
     line-height: .32rem;
-    background-color: #95d1ff;
+    background-color: skyblue;
     border-radius: 2px;
     font-size: 14px;
-    color: #e3f2ff;
+    color: #fff;
 }
 section .login_wrap .link{
     font-size:14px;

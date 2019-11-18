@@ -2,7 +2,7 @@ import axios from "axios"
 import {goodsList} from "@api/goods"
 let state = {
     goodsList:[],
-    selectedAll:true,
+    selectedAll:true
 }
 
 let actions = {
@@ -14,7 +14,7 @@ let actions = {
         commit("handleMutationsGetGoods",data.data.list) 
     },
     async  handleDelete({dispatch},prarms){
-        let data= await  axios({
+        await  axios({
                  method:"delete",
                  url:"http://localhost:3000/goods"+"/"+prarms,
              })      
@@ -65,9 +65,6 @@ let getters={
             if(state.goodsList[i].flag){
                 sCount+=state.goodsList[i].goodsNum;
                 sPrice+=((state.goodsList[i].goodsPrice*10*state.goodsList[i].goodsNum))
-                // if(sPrice>=50){
-                //     sPrice-=10
-                // }
             }
         }
         return{
@@ -75,7 +72,6 @@ let getters={
             sCount
         }
     }
-
 }
 export default{
     state,

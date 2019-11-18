@@ -374,6 +374,7 @@ html {
   border-radius: 0.2rem;
   background: #f53b10;
   color: #fff;
+   font:-webkit-control
 }
 #grilactive {
   border-bottom: 0.03rem solid red;
