@@ -8,7 +8,7 @@ let actions = {
     async handleGetCount({commit}){
         let data = await axios({
             methods: "get",
-            url: "http://localhost:3000/goods"
+            url: "http://10.60.13.245:3000/goods"
         })
         let Num=0;
         for(var i=0;i<data.data.length;i++){

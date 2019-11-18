@@ -560,6 +560,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font:-webkit-control;
 }
 .main .nav_content .item_con .btn span {
   font-size: 0.15rem;
