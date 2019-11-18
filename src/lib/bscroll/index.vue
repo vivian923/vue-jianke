@@ -12,9 +12,7 @@ export default {
       this.scroll=new BScroll(this.$refs.wrapper,{
           pullDownRefresh:true,
           pullUpLoad:true,
-          probeType:1,
-          click:true,
-          tap:true
+         
 
       })
         
